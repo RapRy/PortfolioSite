@@ -1,1 +1,97 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.headerWrap {
+  background: #1D2748;
+  position: relative;
+}
+
+.headerWrap .headerContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr;
+      grid-template-columns: auto 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.headerWrap .headerContainer .navigationWrap {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.headerWrap .headerContainer .navigationWrap .desktopMenu {
+  display: none;
+}
+
+.headerWrap .headerContainer .navigationWrap .desktopMenu a {
+  font-size: .85rem;
+  color: #fff;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.headerWrap .headerContainer .navigationWrap .desktopMenu a:last-child {
+  margin-right: 0px;
+}
+
+.headerWrap .headerContainer .navigationWrap .menuBurger {
+  cursor: pointer;
+}
+
+.headerWrap .headerContainer .navigationWrap .menuBurger span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background: #E9F0F4;
+  margin-bottom: 5px;
+  border-radius: 1px;
+}
+
+.headerWrap .headerContainer .navigationWrap .menuBurger span:last-child {
+  margin-bottom: 0px;
+}
+
+.headerWrap .sideNavigationWrap {
+  position: absolute;
+  top: 71px;
+  left: 0;
+  width: 100%;
+  background: #1D2748;
+}
+
+.headerWrap .sideNavigationWrap .sideNavigationContainer {
+  text-align: center;
+  padding: 20px;
+}
+
+.headerWrap .sideNavigationWrap .sideNavigationContainer a {
+  display: block;
+  font-size: .9rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.headerWrap .sideNavigationWrap .sideNavigationContainer a:last-child {
+  margin-bottom: 0px;
+}
+/*# sourceMappingURL=styles.css.map */
