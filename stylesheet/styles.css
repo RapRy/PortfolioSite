@@ -71,6 +71,7 @@ img {
 }
 
 .headerWrap .sideNavigationWrap {
+  display: none;
   position: absolute;
   top: 71px;
   left: 0;
@@ -93,5 +94,40 @@ img {
 
 .headerWrap .sideNavigationWrap .sideNavigationContainer a:last-child {
   margin-bottom: 0px;
+}
+
+.lpWrap {
+  background: url("../images/bg-lp.jpg") no-repeat top center;
+  background-size: cover;
+  height: calc(100vh - 71px);
+  position: relative;
+}
+
+.lpWrap::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: inherit;
+  background: #1D2748;
+  opacity: .8;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.lpWrap .lpContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=styles.css.map */
