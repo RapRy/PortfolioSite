@@ -113,10 +113,12 @@ img {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2;
 }
 
 .lpWrap .lpContainer {
   max-width: 900px;
+  height: 100%;
   margin: 0 auto;
   padding: 10px 20px;
   display: -webkit-box;
@@ -129,5 +131,56 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+.lpWrap .lpContainer .introWrap {
+  margin-bottom: 20px;
+}
+
+.lpWrap .lpContainer .introWrap h2 {
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.lpWrap .lpContainer .introWrap h2 span {
+  font-weight: 700;
+}
+
+.lpWrap .lpContainer .introWrap h3 {
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.lpWrap .lpContainer .ctaBtnWrap {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.lpWrap .lpContainer .ctaBtnWrap a {
+  border: 2px solid #E9F0F4;
+  padding: 10px 30px;
+  color: #E9F0F4;
+  text-align: center;
+  display: inline-block;
+  background: transparent;
+  -webkit-transition: background 500ms ease-in-out;
+  transition: background 500ms ease-in-out;
+}
+
+.lpWrap .lpContainer .ctaBtnWrap a:hover {
+  background: #1C77D1;
 }
 /*# sourceMappingURL=styles.css.map */

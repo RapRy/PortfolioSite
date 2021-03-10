@@ -3,6 +3,7 @@ $gray: #595959;
 $darkBlue: #1D2748;
 $paleBlue: #E9F0F4;
 $pColor: #7F828C;
+$blue: #1C77D1;
 
 *{
     margin:0;
@@ -101,14 +102,62 @@ img{max-width: 100%;}
         position: absolute;
         top:0;
         left:0;
+        z-index: 2;
     }
 
     .lpContainer{
         max-width: 900px;
+        height:100%;
         margin:0 auto;
         padding:10px 20px;
         display: flex; 
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 3;
+
+        .introWrap{
+            margin-bottom:20px;
+
+            h2{
+                color: #fff;
+                font-weight: 400;
+                text-align: center;
+                font-size:2.5rem;
+                margin-bottom:10px;
+
+                span{
+                    font-weight:700;
+                }
+            }
+
+            h3{
+                text-align: center;
+                color:#fff;
+                font-weight:700;
+                font-size:1.2rem;
+            }
+        }
+
+        .ctaBtnWrap{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap:10px;
+
+            a{
+                border:2px solid $paleBlue;
+                padding:10px 30px;
+                color:$paleBlue;
+                text-align: center;
+                display: inline-block;
+                background:transparent;
+                transition: background 500ms ease-in-out;
+
+                &:hover{
+                    background:$blue;
+                }
+            }
+        }
     }
 }
