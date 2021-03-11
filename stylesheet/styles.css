@@ -11,8 +11,18 @@ a {
   text-decoration: none;
 }
 
-img {
+img, svg {
   max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: .85rem;
+  color: #7F828C;
+  line-height: 1.8;
 }
 
 .headerWrap {
@@ -182,5 +192,48 @@ img {
 
 .lpWrap .lpContainer .ctaBtnWrap a:hover {
   background: #1C77D1;
+}
+
+.aboutWrap .aboutContainer {
+  max-width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.aboutWrap .aboutContainer .characterWrap {
+  position: relative;
+}
+
+.aboutWrap .aboutContainer .characterWrap img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 3;
+}
+
+.aboutWrap .aboutContainer .characterWrap svg {
+  position: relative;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.aboutWrap .aboutContainer .aboutInfoWrap h1 {
+  font-size: 1.8rem;
+  color: #1F1F1F;
+  text-align: center;
+}
+
+.aboutWrap .aboutContainer .aboutInfoWrap .about {
+  margin-bottom: 20px;
+}
+
+.aboutWrap .aboutContainer .aboutInfoWrap .about p {
+  text-align: center;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=styles.css.map */
