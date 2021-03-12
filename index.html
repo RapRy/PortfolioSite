@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./stylesheet/styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" defer></script>
+    <script src="js/main.js" defer></script>
+
     <title>Ralph Ryan</title>
 </head>
 <body>
@@ -41,7 +46,7 @@
 <!-- header end -->
 
 <!-- landing page start -->
-    <div class="lpWrap">
+    <div class="lpWrap display-flex">
         <div class="lpContainer">
             <div class="introWrap">
                 <h2>I'm <span>Ralph Ryan</span></h2>
@@ -56,7 +61,7 @@
 <!-- landing page end -->
 
 <!-- about me start -->
-    <div class="aboutWrap">
+    <div class="aboutWrap display-flex">
         <div class="aboutContainer">
             <div class="characterWrap">
                 <img src="images/char_about.svg" alt="Character">
@@ -92,5 +97,58 @@
         </div>
     </div>
 <!-- about me end -->
+
+<!-- portfolio start -->
+    <div class="portfolioWrap display-flex">
+        <div class="portfolioContainer">
+            <h1>Portfolio</h1>
+            <div class="portfolioBtnContainer">
+                <button class="GDbtn activePort">Graphics Design</button>
+                <button class="WDbtn">Web Design</button>
+            </div>
+            <div class="portfolioImagesWrap">
+                <div class="portfolioImagesContainer">
+                    <div class="imageWrap">
+                        <img src="https://source.unsplash.com/user/xps" alt="">
+                    </div>
+                    <div class="imageWrap">
+                        <img src="https://source.unsplash.com/user/tengyart" alt="">
+                    </div>
+                    <div class="imageWrap">
+                        <img src="https://source.unsplash.com/user/saffu" alt="">
+                    </div>
+                    <div class="imageWrap">
+                        <img src="https://source.unsplash.com/user/asoggetti" alt="">
+                    </div>
+                    <div class="imageWrap">
+                        <img src="https://source.unsplash.com/user/nasa" alt="">
+                    </div>
+                    <div class="imageWrap">
+                        <img src="https://source.unsplash.com/user/mymind" alt="">
+                    </div>
+                    <div class="imageWrap">
+                        <button class="showMore"><i class="far fa-eye"></i><span>Show More</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- portfolio end -->
+
+<!-- experience start -->
+    <div class="experienceWrap display-flex">
+        <div class="experienceContainer">
+            <h1>Experience</h1>
+            <div class="experienceBtnContainer">
+                <button class="expBtn activeExp" data-exp="Quickcell Technologies">Quickcell Technologies</button>
+                <button class="expBtn" data-exp="Freshco Shopping Centre">Freshco Shopping Centre</button>
+                <button class="expBtn" data-exp="Foto Express">Foto Express</button>
+            </div>
+            <div class="experienceDetailsContainer">
+
+            </div>
+        </div>
+    </div>
+<!-- experience end -->
 </body>
 </html>

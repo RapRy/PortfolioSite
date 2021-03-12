@@ -1,0 +1,60 @@
+{
+    "Quickcell Technologies":
+    {
+        "company": "Quickcell Technologies",
+        "position": "Web and Graphics Designer",
+        "year": "2017 - Present",
+        "duties": [
+            "Create design mockups of landing pages, banners, content portals and website.",
+            "Translate mockups to HTML, CSS and Javascript that are UI friendly, appealing and responsive.",
+            "Perform testing and check if there is any bug in the code.",
+            "Manage different type of media contents (videos, wallpaper and music) to be used in the content portals.",
+            "Create design layout for brochures, posters and leaflets.",
+            "Create and conceptualize logos.",
+            "Edit and retouch photos.",
+            "Perform basic troubleshooting on all of the devices (PC, Printer) we use in the office.",
+            "Create Customer Complain Report as per request of the Customer Service Representative."
+        ],
+        "portfolios":[
+            "portfolio link 1",
+            "portfolio link 2",
+            "portfolio link 3"
+        ]
+    },
+
+    "Freshco Shopping Centre":
+    {
+        "company": "Freshco Shopping Centre",
+        "position": "Graphics Designer",
+        "year": "2015 - 2017",
+        "duties": [
+            "Designed food menu and delivery leaflet for different restaurant.",
+            "Preparing and carrying out food photoshoots.",
+            "Created new design themes for marketing and collateral materials  based from the brandings of each restaurant franchise.",
+            "Collaborated with marketing team to design and produce artwork for marketing and promotional materials.",
+            "Perform basic troubleshooting on all of the devices (PC, Printer) we use in the office."
+        ],
+        "portfolios":[
+            "portfolio link 1",
+            "portfolio link 2",
+            "portfolio link 3"
+        ]
+    },
+
+    "Foto Express":
+    {
+        "company": "Foto Express",
+        "position": "Layout Artist",
+        "year": "2013 - 2014",
+        "duties": [
+            "Meeting client to dicuss the objective and requiremets of the job.",
+            "Designing and developing concepts for the clients that suits their needs and purposes.",
+            "Created new design themes for wedding, birthday and other special occassions."
+        ],
+        "portfolios":[
+            "portfolio link 1",
+            "portfolio link 2",
+            "portfolio link 3"
+        ]
+    }
+}

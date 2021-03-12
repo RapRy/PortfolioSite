@@ -25,6 +25,16 @@ p {
   line-height: 1.8;
 }
 
+/* global style */
+.display-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .headerWrap {
   background: #1D2748;
   position: relative;
@@ -109,15 +119,15 @@ p {
 .lpWrap {
   background: url("../images/bg-lp.jpg") no-repeat top center;
   background-size: cover;
-  height: calc(100vh - 71px);
   position: relative;
+  min-height: calc(100vh - 71px);
 }
 
 .lpWrap::after {
   content: "";
   display: block;
   width: 100%;
-  height: inherit;
+  height: 100%;
   background: #1D2748;
   opacity: .8;
   position: absolute;
@@ -194,6 +204,10 @@ p {
   background: #1C77D1;
 }
 
+.aboutWrap {
+  min-height: 100vh;
+}
+
 .aboutWrap .aboutContainer {
   max-width: 900px;
   height: 100%;
@@ -223,17 +237,118 @@ p {
 }
 
 .aboutWrap .aboutContainer .aboutInfoWrap h1 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #1F1F1F;
   text-align: center;
 }
 
 .aboutWrap .aboutContainer .aboutInfoWrap .about {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .aboutWrap .aboutContainer .aboutInfoWrap .about p {
   text-align: center;
   margin-top: 10px;
+}
+
+.aboutWrap .aboutContainer .aboutInfoWrap .techsIUse {
+  text-align: center;
+}
+
+.aboutWrap .aboutContainer .aboutInfoWrap .techsIUse li {
+  display: inline-block;
+  font-size: .9rem;
+  font-weight: 700;
+  margin-right: 10px;
+  margin-top: 20px;
+  color: #7F828C;
+}
+
+.aboutWrap .aboutContainer .aboutInfoWrap .techsIUse li img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.portfolioWrap {
+  background: #E9F0F4;
+  min-height: 100vh;
+}
+
+.portfolioWrap h1 {
+  font-size: 1.6rem;
+  color: #1F1F1F;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.portfolioWrap .portfolioBtnContainer {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.portfolioWrap .portfolioBtnContainer button {
+  font-size: .9rem;
+  font-weight: 700;
+  color: #7F828C;
+  display: inline-block;
+  background: none;
+}
+
+.portfolioWrap .portfolioBtnContainer button.GDbtn {
+  margin-right: 20px;
+}
+
+.portfolioWrap .portfolioBtnContainer button.activePort {
+  color: #1F1F1F;
+}
+
+.portfolioWrap .portfolioImagesContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(auto, 200px);
+  margin-top: 20px;
+}
+
+.portfolioWrap .portfolioImagesContainer .imageWrap:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / 3;
+}
+
+.portfolioWrap .portfolioImagesContainer .imageWrap img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolioWrap .portfolioImagesContainer .imageWrap:last-child {
+  background: #1D2748;
+}
+
+.portfolioWrap .portfolioImagesContainer .imageWrap:last-child .showMore {
+  background: transparent;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.portfolioWrap .portfolioImagesContainer .imageWrap:last-child .showMore i {
+  display: block;
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.portfolioWrap .portfolioImagesContainer .imageWrap:last-child .showMore span {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.experienceWrap {
+  min-height: 100vh;
 }
 /*# sourceMappingURL=styles.css.map */
