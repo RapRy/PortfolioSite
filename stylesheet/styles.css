@@ -445,4 +445,83 @@ p {
 .contactWrap {
   background: #E9F0F4;
 }
+
+.contactWrap .contactContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.contactWrap .contactContainer h1 {
+  font-size: 1.6rem;
+  color: #1F1F1F;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contactWrap .contactContainer .contactDetails {
+  text-align: center;
+  max-width: 345px;
+  margin: 0 auto 20px;
+}
+
+.contactWrap .contactContainer .contactDetails li {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.contactWrap .contactContainer .contactDetails li:last-child {
+  margin-bottom: 0;
+}
+
+.contactWrap .contactContainer .contactDetails li:first-child {
+  margin-right: 10px;
+}
+
+.contactWrap .contactContainer .contactDetails li i {
+  margin-right: 5px;
+  font-size: .8rem;
+  color: #1F1F1F;
+}
+
+.contactWrap .contactContainer .contactDetails li span {
+  font-size: .85rem;
+  color: #7F828C;
+  font-weight: 700;
+}
+
+.contactWrap .contactContainer .additionalContactInfo p {
+  color: #7F828C;
+  font-size: .8rem;
+  text-align: center;
+}
+
+.contactWrap .contactContainer .additionalContactInfo p .contactHighlight {
+  font-size: .85rem;
+  color: #1F1F1F;
+  font-weight: 700;
+}
+
+.contactWrap .contactContainer .additionalContactInfo p .contactHighlight:hover {
+  color: #1D2748;
+}
+
+.footerWrap {
+  background: #1D2748;
+  text-align: center;
+}
+
+.footerWrap .footerContainer {
+  padding: 10px 20px;
+}
+
+.footerWrap .footerContainer img {
+  vertical-align: middle;
+  margin-right: 30px;
+}
+
+.footerWrap .footerContainer span {
+  font-size: .75rem;
+  color: #fff;
+}
 /*# sourceMappingURL=styles.css.map */
