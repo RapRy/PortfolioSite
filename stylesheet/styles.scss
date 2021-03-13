@@ -324,4 +324,90 @@ p{
 
 .experienceWrap{
     @include heightVH(100vh);
+
+    .experienceContainer{
+        max-width:900px;
+        margin:0 auto;
+        padding:10px 20px;
+
+        h1{
+            font-size: 1.6rem;
+            color:$slightDark;
+            text-align:center;
+            margin-bottom: 20px;
+        }
+
+        .experienceBtnContainer{
+            margin-bottom:30px;
+
+            .expBtn{
+                background: none;
+                display: block;
+                margin:0 auto;
+                font-size:.9rem;
+                font-weight:700;
+                color: $pColor;
+                margin-bottom:10px;
+                cursor:pointer;
+
+                &:last-child{margin-bottom:0;}
+
+                &.activeExp{color: $slightDark;}
+            }
+        }
+
+        .experienceDetailsContainer{
+
+            h3{
+                font-size:1.2rem;
+                font-weight: $slightDark;
+                color:$slightDark;
+                text-align: center;
+                margin-bottom:5px;
+            }
+
+            span{
+                font-size:1rem;
+                color:$slightDark;
+                text-align: center;
+                font-weight:700;
+                display: block;
+            }
+
+            .dutiesWrap, .portfolioLinksWrap{
+                margin-top:20px;
+
+                h5{
+                    font-weight:700;
+                    color:$slightDark;
+                    font-size:.9rem;
+                    text-align: center;
+                    margin-bottom:10px;
+                }
+
+                li{
+                    margin-bottom:5px;
+                    display: flex;
+                    flex-direction: row;
+
+                    i{
+                        margin:7px 5px 0 0;
+                        font-size:.8rem;
+                        color:$slightDark;
+                    }
+
+                    p{
+                        font-size:.85rem;
+                        color:$pColor;
+                    }
+
+                    &:last-child{margin-bottom:0;}
+                }
+            }
+        }
+    }
+}
+
+.contactWrap{
+    background:$paleBlue;
 }

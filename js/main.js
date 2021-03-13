@@ -9,6 +9,8 @@ $(() => {
             const res = await fetch('../json/experience.json')
             const data = await res.json();
 
+            this.expDetailsCont.empty()
+
             this.expDetailsCont.append(`
                 <h3>${data[dataExp]['position']}</h3>
                 <span>${data[dataExp]['year']}</span>

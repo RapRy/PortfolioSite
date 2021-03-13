@@ -351,4 +351,98 @@ p {
 .experienceWrap {
   min-height: 100vh;
 }
+
+.experienceWrap .experienceContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.experienceWrap .experienceContainer h1 {
+  font-size: 1.6rem;
+  color: #1F1F1F;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.experienceWrap .experienceContainer .experienceBtnContainer {
+  margin-bottom: 30px;
+}
+
+.experienceWrap .experienceContainer .experienceBtnContainer .expBtn {
+  background: none;
+  display: block;
+  margin: 0 auto;
+  font-size: .9rem;
+  font-weight: 700;
+  color: #7F828C;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.experienceWrap .experienceContainer .experienceBtnContainer .expBtn:last-child {
+  margin-bottom: 0;
+}
+
+.experienceWrap .experienceContainer .experienceBtnContainer .expBtn.activeExp {
+  color: #1F1F1F;
+}
+
+.experienceWrap .experienceContainer .experienceDetailsContainer h3 {
+  font-size: 1.2rem;
+  font-weight: #1F1F1F;
+  color: #1F1F1F;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.experienceWrap .experienceContainer .experienceDetailsContainer span {
+  font-size: 1rem;
+  color: #1F1F1F;
+  text-align: center;
+  font-weight: 700;
+  display: block;
+}
+
+.experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap {
+  margin-top: 20px;
+}
+
+.experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap h5, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap h5 {
+  font-weight: 700;
+  color: #1F1F1F;
+  font-size: .9rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li {
+  margin-bottom: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li i, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li i {
+  margin: 7px 5px 0 0;
+  font-size: .8rem;
+  color: #1F1F1F;
+}
+
+.experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li p, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li p {
+  font-size: .85rem;
+  color: #7F828C;
+}
+
+.experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li:last-child, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li:last-child {
+  margin-bottom: 0;
+}
+
+.contactWrap {
+  background: #E9F0F4;
+}
 /*# sourceMappingURL=styles.css.map */
