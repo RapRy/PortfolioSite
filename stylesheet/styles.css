@@ -212,7 +212,7 @@ p {
   max-width: 900px;
   height: 100%;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 30px 20px;
 }
 
 .aboutWrap .aboutContainer .characterWrap {
@@ -274,35 +274,42 @@ p {
   min-height: 100vh;
 }
 
-.portfolioWrap h1 {
+.portfolioWrap .portfolioContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+.portfolioWrap .portfolioContainer h1 {
   font-size: 1.6rem;
   color: #1F1F1F;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.portfolioWrap .portfolioBtnContainer {
+.portfolioWrap .portfolioContainer .portfolioBtnContainer {
   margin-bottom: 20px;
   text-align: center;
 }
 
-.portfolioWrap .portfolioBtnContainer button {
+.portfolioWrap .portfolioContainer .portfolioBtnContainer button {
   font-size: .9rem;
   font-weight: 700;
   color: #7F828C;
   display: inline-block;
   background: none;
+  cursor: pointer;
 }
 
-.portfolioWrap .portfolioBtnContainer button.GDbtn {
+.portfolioWrap .portfolioContainer .portfolioBtnContainer button.GDbtn {
   margin-right: 20px;
 }
 
-.portfolioWrap .portfolioBtnContainer button.activePort {
+.portfolioWrap .portfolioContainer .portfolioBtnContainer button.activePort {
   color: #1F1F1F;
 }
 
-.portfolioWrap .portfolioImagesContainer {
+.portfolioWrap .portfolioContainer .portfolioImagesContainer {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
@@ -311,24 +318,78 @@ p {
   margin-top: 20px;
 }
 
-.portfolioWrap .portfolioImagesContainer .imageWrap:nth-child(1) {
+@media all and (min-width: 600px) {
+  .portfolioWrap .portfolioContainer .portfolioImagesContainer {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:not(:last-child)::before {
+  content: attr(data-name);
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: .9rem;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  z-index: 2;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:not(:last-child):hover::before {
+  top: 20px;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:not(:last-child)::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background: #1D2748;
+  opacity: 0;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:not(:last-child):hover::after {
+  opacity: .8;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:nth-child(1) {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   grid-row: 1 / 3;
 }
 
-.portfolioWrap .portfolioImagesContainer .imageWrap img {
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-.portfolioWrap .portfolioImagesContainer .imageWrap:last-child {
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:last-child {
   background: #1D2748;
 }
 
-.portfolioWrap .portfolioImagesContainer .imageWrap:last-child .showMore {
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:last-child .showMore {
   background: transparent;
   vertical-align: middle;
   width: 100%;
@@ -336,14 +397,14 @@ p {
   cursor: pointer;
 }
 
-.portfolioWrap .portfolioImagesContainer .imageWrap:last-child .showMore i {
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:last-child .showMore i {
   display: block;
   color: #fff;
   font-size: 3rem;
   margin-bottom: 10px;
 }
 
-.portfolioWrap .portfolioImagesContainer .imageWrap:last-child .showMore span {
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:last-child .showMore span {
   font-size: 1rem;
   color: #fff;
 }
@@ -355,7 +416,7 @@ p {
 .experienceWrap .experienceContainer {
   max-width: 900px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 30px 20px;
 }
 
 .experienceWrap .experienceContainer h1 {
@@ -449,7 +510,7 @@ p {
 .contactWrap .contactContainer {
   max-width: 900px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 30px 20px;
 }
 
 .contactWrap .contactContainer h1 {

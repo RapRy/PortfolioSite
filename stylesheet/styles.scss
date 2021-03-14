@@ -186,7 +186,7 @@ p{
         max-width: 900px;
         height:100%;
         margin:0 auto;
-        padding:10px 20px;
+        padding:30px 20px;
 
         .characterWrap{
             position: relative;
@@ -249,72 +249,124 @@ p{
     background:$paleBlue;
     @include heightVH(100vh);
 
-    h1{
-        font-size: 1.6rem;
-        color:$slightDark;
-        text-align:center;
-        margin-bottom: 20px;
-    }
+    .portfolioContainer{
+        max-width: 900px;
+        margin:0 auto;
+        padding:30px 0;
 
-    .portfolioBtnContainer{
-        margin-bottom: 20px;
-        text-align: center;
+        h1{
+            font-size: 1.6rem;
+            color:$slightDark;
+            text-align:center;
+            margin-bottom: 20px;
+        }
 
-        button{
-            font-size:.9rem;
-            font-weight:700;
-            color: $pColor;
-            display: inline-block;
-            background: none;
+        .portfolioBtnContainer{
+            margin-bottom: 20px;
+            text-align: center;
 
-            &.GDbtn{
-                margin-right:20px;
-            }
+            button{
+                font-size:.9rem;
+                font-weight:700;
+                color: $pColor;
+                display: inline-block;
+                background: none;
+                cursor:pointer;
 
-            &.activePort{
-                color: $slightDark;
+                &.GDbtn{
+                    margin-right:20px;
+                }
+
+                &.activePort{
+                    color: $slightDark;
+                }
             }
         }
-    }
 
-    .portfolioImagesContainer{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: minmax(auto, 200px);
-        margin-top:20px;
+        .portfolioImagesContainer{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: minmax(auto, 200px);
+            margin-top:20px;
 
-        .imageWrap{
-
-            &:nth-child(1){
-                grid-row:1 / 3;
-            }
-            
-            img{
-                object-fit: cover;
-                width:100%;
-                height:100%;
+            @media all and (min-width:600px){
+                grid-template-columns: repeat(4, 1fr);
             }
 
-            &:last-child{
-                background:$darkBlue;
+            .imageWrap{
+                cursor:pointer;
+                position: relative;
+                overflow: hidden;
 
-                .showMore{
-                    background: transparent;
-                    vertical-align: middle;
-                    width: 100%;
+                &:not(:last-child)::before{
+                    content: attr(data-name);
+                    display: block;
+                    width:100%;
+                    height:100%;
+                    position: absolute;
+                    top:-20px;
+                    left:0;
+                    font-size:.9rem;
+                    color:#fff;
+                    font-weight:700;
+                    text-align: center;
+                    z-index:2;
+                    transform: translateY(0%);
+                    transition: all 300ms ease-in-out;
+                }
+
+                &:not(:last-child):hover::before{
+                    top:20px;
+                }
+
+                &:not(:last-child)::after{
+                    content:"";
+                    width:100%;
                     height: 100%;
-                    cursor: pointer;
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    display: block;
+                    background: $darkBlue;
+                    opacity:0;
+                    transition: all 300ms ease-in-out;
+                }
 
-                    i{
-                        display: block;
-                        color:#fff;
-                        font-size:3rem;
-                        margin-bottom: 10px;
-                    }
+                &:not(:last-child):hover::after{
+                    opacity: .8;
+                }
 
-                    span{
-                        font-size:1rem;
-                        color:#fff;
+                &:nth-child(1){
+                    grid-row:1 / 3;
+                }
+                
+                img{
+                    object-fit: cover;
+                    width:100%;
+                    height:100%;
+                }
+
+                &:last-child{
+                    background:$darkBlue;
+
+                    .showMore{
+                        background: transparent;
+                        vertical-align: middle;
+                        width: 100%;
+                        height: 100%;
+                        cursor: pointer;
+
+                        i{
+                            display: block;
+                            color:#fff;
+                            font-size:3rem;
+                            margin-bottom: 10px;
+                        }
+
+                        span{
+                            font-size:1rem;
+                            color:#fff;
+                        }
                     }
                 }
             }
@@ -328,7 +380,7 @@ p{
     .experienceContainer{
         max-width:900px;
         margin:0 auto;
-        padding:10px 20px;
+        padding:30px 20px;
 
         h1{
             font-size: 1.6rem;
@@ -414,7 +466,7 @@ p{
     .contactContainer{
         max-width:900px;
         margin:0 auto;
-        padding:10px 20px;
+        padding:30px 20px;
 
         h1{
             font-size: 1.6rem;
