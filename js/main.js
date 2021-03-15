@@ -89,7 +89,7 @@ $(() => {
                         <div class="imageWrap" data-name="${data[i].name}">
                             <img src="${data[i].thumbnail}" alt="${data[i].name}">
                         </div>
-                    `) 
+                    `)
 
                     if(i === (data.length - 1)){
                         // if last iteration index is equal to the array length 
@@ -102,6 +102,8 @@ $(() => {
                     }
                 }
             }
+
+            $('.imageWrap img').animate({height:"100%"}, {duration: 2000, easing: "swing"})
         }
 
         showMoreClickEvt(){
