@@ -1,9 +1,151 @@
 $(() => {
+    class Navigation{
+        constructor(){
+            this.menuBurgerBtn = $('.menuBurger')
+            this.sideNavigationWrap = $('.sideNavigationWrap')
+            this.isShow = false
+            this.spanDuration = 100
+            this.sideNavDuration = 200
+        }
+
+        toggleMenu(){
+            this.menuBurgerBtn.on('click', () => {
+                if(this.isShow === false){
+                    // show sidenav
+                    this.sideNavigationWrap.css({"display":"block"}).animate({top:"71px"}, {duration:this.sideNavDuration, easing:"swing"})
+                    // animate first span
+                    this.menuBurgerBtn.children().eq(0).animate({top:"10px"}, {duration:this.spanDuration, easing:"swing"})
+                    // animate third span
+                    this.menuBurgerBtn.children().eq(2).animate({top:"10px"}, {duration:this.spanDuration, easing:"swing", complete:
+                        function(){
+                            // hide second span
+                            $(this).prev().css({"opacity":0})
+                            // rotate 1st and 3rd span
+                            $(this).prev().prev().css({"transform":"rotate(45deg)"})
+                            $(this).css({"transform":"rotate(-45deg)"})
+                        }
+                    })
+
+                }else{
+                    // hide sidenav
+                    this.sideNavigationWrap.animate({top:"-999px"}, {duration:this.sideNavDuration, easing:"swing", complete:
+                        function(){
+                            $(this).css({"display":"none"})
+                        }
+                    })
+                    // reset rotation of 1st and 3rd span
+                    this.menuBurgerBtn.children().eq(0).css({"transform":"rotate(0deg)"})
+                    this.menuBurgerBtn.children().eq(2).css({"transform":"rotate(0deg)"})
+
+                    setTimeout(() => {
+                        // show 2nd span
+                        this.menuBurgerBtn.children().eq(1).css({"opacity":1})
+                        // animate top 1st span
+                        this.menuBurgerBtn.children().eq(0).animate({top:"0px"}, {duration:this.spanDuration, easing:"swing"})
+                        // animate top 3rd span
+                        this.menuBurgerBtn.children().eq(2).animate({top:"20px"}, {duration:this.spanDuration, easing:"swing"})
+                    }, 200)
+                }
+                // toggle isShow value
+                this.isShow = !this.isShow
+            })
+        }
+
+        resizeEvent(){
+            $(window).on('resize', (e) => {
+                if($(e.target).outerWidth() >= 600){
+                    if(this.isShow === true){
+                        // hide sidenav
+                        this.sideNavigationWrap.animate({top:"-999px"}, {duration:this.sideNavDuration, easing:"swing", complete:
+                            function(){
+                                $(this).css({"display":"none"})
+                            }
+                        })
+                        // reset rotation of 1st and 3rd span
+                        this.menuBurgerBtn.children().eq(0).css({"transform":"rotate(0deg)"})
+                        this.menuBurgerBtn.children().eq(2).css({"transform":"rotate(0deg)"})
+
+                        setTimeout(() => {
+                            // show 2nd span
+                            this.menuBurgerBtn.children().eq(1).css({"opacity":1})
+                            // animate top 1st span
+                            this.menuBurgerBtn.children().eq(0).animate({top:"0px"}, {duration:this.spanDuration, easing:"swing"})
+                            // animate top 3rd span
+                            this.menuBurgerBtn.children().eq(2).animate({top:"20px"}, {duration:this.spanDuration, easing:"swing"})
+                        }, 200)
+
+                        // toggle isShow value
+                        this.isShow = !this.isShow
+                    }
+                }
+            })
+        }
+    }
+
     class Experience{
         constructor(){
             this.expBtn = $('.expBtn')
             this.expDetailsCont = $('.experienceDetailsContainer')
+            this.dutyInd = 0
+            this.portInd = 0
+            this.animDuration = 200
         }
+
+        enterAnimation(){
+            const dutyAnimation = setInterval(() => {
+                // animate duty one by one
+                $('.duty').eq(this.dutyInd).animate({opacity:1, left:0}, {duration:this.animDuration, easing:"swing"})
+
+                if(this.dutyInd === $('.duty').length){
+                    // if all of items on the list finished animation
+
+                    // set new duty index value to -1
+                    this.dutyInd = -1
+                    // clear timer stop iteration of duty animation then move on to portfolio link iteration
+                    clearInterval(dutyAnimation)
+
+                    const portAnimation = setInterval(() => {
+                        // animate portfolio one by one
+                        $('.portfolio').eq(this.portInd).animate({opacity:1, left:0}, {duration:this.animDuration, easing:"swing"})
+                        if(this.portInd === $('.portfolio').length){
+                            // if all of items on the list finished animation
+                            // set new duty index value to -1
+                            this.portInd = -1
+                            // clear timer stop iteration
+                            clearInterval(portAnimation)
+                        } 
+                        // increment index
+                        this.portInd++
+                    }, this.animDuration);
+                }
+                // increment index
+                this.dutyInd++
+            }, this.animDuration);
+        }
+
+        // experiment start
+        // exitAnimation(){
+        //     const portAnimation = setInterval(() => {
+        //         $('.portfolio').eq(this.portInd).animate({opacity:0, left:"100px"}, {duration:this.animDuration, easing:"swing"})
+
+        //         if(this.portInd === 0){
+        //             this.portInd = 0
+        //             clearInterval(portAnimation)
+
+        //             const dutyAnimation = setInterval(() => {
+        //                 $('.duty').eq(this.dutyInd).animate({opacity:0, left:"100px"}, {duration:this.animDuration, easing:"swing"})
+        //                 if(this.dutyInd === 0){
+        //                     this.dutyInd = 0
+        //                     clearInterval(dutyAnimation)
+        //                 }
+        //                 this.dutyInd--
+        //             }, this.animDuration);
+        //         }
+
+        //         this.portInd--
+        //     }, this.animDuration);
+        // }
+        // experiment end
 
         async fetchData(dataExp){
             const res = await fetch('../json/experience.json')
@@ -45,11 +187,36 @@ $(() => {
                     </li>
                 `)
             })
+
+            this.enterAnimation();
         }
 
         clickEvt(){
             this.expBtn.on('click', (e) => {
-                this.fetchData($(e.currentTarget).attr("data-exp"))
+                // this.exitAnimation()
+
+                if($(e.target).hasClass('activeExp')){
+                    // click on the current active button
+                    // dont do anything
+                    return false; 
+                }else{
+
+                    // click to selected experience
+                    // loop to remove class of the previous active experience
+                    this.expBtn.each((i, elem) => $(elem).removeClass('activeExp'))
+                    // add class to selected experience
+                    $(e.target).addClass('activeExp')
+                    // fade out all the list items of the precious active experience
+                    $('.duty').animate({opacity:0, left:"100px"}, {duration:this.animDuration, easing:"swing"})
+                    $('.portfolio').animate({opacity:0, left:"100px"}, {duration:this.animDuration, easing:"swing"})
+
+                    // after all of the items fade out, show the items of the selected experience
+                    setTimeout(() => {
+                        this.fetchData($(e.currentTarget).attr("data-exp"))
+                    }, this.animDuration)
+                    
+                }
+
             })
         }
     }
@@ -67,6 +234,7 @@ $(() => {
             this.currentIndex = 0
             this.pageNum = 1;
             this.portData = []
+            this.animDuration = 800
             // this.currentIndex = 6
         }
 
@@ -103,36 +271,65 @@ $(() => {
                 }
             }
 
-            $('.imageWrap img').animate({height:"100%"}, {duration: 2000, easing: "swing"})
+            $('.imageWrap img').animate({height:"100%"}, {duration: this.animDuration, easing: "swing"})
+
+            $('.showMoreWrap').animate({height:"100%"}, {duration:this.animDuration, easing:"swing", complete:
+                function(){
+                  $(this).children().animate({opacity:1}, {duration:500, easing:"swing"}) 
+                }
+            })
         }
 
         showMoreClickEvt(){
             $('.showMore').on('click', () => {
-                // add 1 to pageNum
-                this.pageNum += 1
-                // remove the previously displayed images
-                this.portfolioImagesContainer.empty()
+                // animate img height : hide img
+                $('.imageWrap img').animate({height:"0"}, {duration: this.animDuration, easing: "swing"})
+                // animate showmore btn opacity : hide showmore btn
+                $('.showMore').animate({opacity:0}, {duration:500, easing:"swing", complete:
+                    function(){
+                        // animate showmorewrap height : hide showmorewrap
+                        $(this).parent().animate({height:"0"}, {duration:this.animate, easing:"swing"})
+                    }       
+                })
 
-                for(let i = this.currentIndex; i < this.portData.length; i++){
-                    if(i === (this.contentNum * this.pageNum)){
-                        // current iteration is equal to the product of contentNum and pagenum
-                        // we need to multiply contentNum and pageNum so that we know when to stop the iteration
-                        this.portfolioImagesContainer.append(this.showMore)
-                        // set currentIndex to the value of current iteration 
-                        this.currentIndex = i
-                        // add event listener to the showmore btn
-                        this.showMoreClickEvt();
-                        // breakout of loop
-                        break
-                    }else{
-                        // append data
-                        this.portfolioImagesContainer.append(`
-                            <div class="imageWrap" data-name="${this.portData[i].name}">
-                                <img src="${this.portData[i].thumbnail}" alt="${this.portData[i].name}">
-                            </div>
-                        `)
+                setTimeout(() => {
+                    // add 1 to pageNum
+                    this.pageNum += 1
+
+                    // remove the previously displayed images
+                    this.portfolioImagesContainer.empty()
+
+                    for(let i = this.currentIndex; i < this.portData.length; i++){
+                        if(i === (this.contentNum * this.pageNum)){
+                            // current iteration is equal to the product of contentNum and pagenum
+                            // we need to multiply contentNum and pageNum so that we know when to stop the iteration
+                            this.portfolioImagesContainer.append(this.showMore)
+                            // set currentIndex to the value of current iteration 
+                            this.currentIndex = i
+                            // add event listener to the showmore btn
+                            this.showMoreClickEvt();
+                            // breakout of loop
+                            break
+                        }else{
+                            // append data
+                            this.portfolioImagesContainer.append(`
+                                <div class="imageWrap" data-name="${this.portData[i].name}">
+                                    <img src="${this.portData[i].thumbnail}" alt="${this.portData[i].name}">
+                                </div>
+                            `)
+                        }
                     }
-                }
+                    // animate image height : show img
+                    $('.imageWrap img').animate({height:"100%"}, {duration: this.animDuration, easing: "swing"})
+                    // animate showmorewrap height : show showmorewrap
+                    $('.showMoreWrap').animate({height:"100%"}, {duration:this.animDuration, easing:"swing", complete:
+                        function(){
+                            // animate showmore btn opacity after shomorewrap animate : show showmore btn
+                            $(this).children().animate({opacity:1}, {duration:500, easing:"swing"}) 
+                        }
+                    })
+
+                }, this.animDuration)
             })
         }
 
@@ -154,38 +351,58 @@ $(() => {
                     // desktop and tablet size
                     // reset value
                     this.contentNum = 12
-                    this.pageNum = 1
+                    this.pageNum = 1;
+                    
                     // remove the previously displayed images
                     this.portfolioImagesContainer.empty()
                     // call dataloop method to append all the data from this.portData property to portfolioImagesContainer
                     this.dataLoop(this.portData)
+
                 }else{
                     // mobile size
                     // reset value
                     this.contentNum = 6
-                    this.pageNum = 1
+                    this.pageNum = 1;
+
                     // remove the previously displayed images
                     this.portfolioImagesContainer.empty()
                     // call dataloop method to append all the data from this.portData property to portfolioImagesContainer
                     this.dataLoop(this.portData)
+
                 }
                 
-
             })
         }
 
         catClickEvt(){
             this.portBtn.on('click', (e) => {
-                
-                this.pageNum = 1
-                this.currentIndex = 0
-                this.fetchData($(e.target).text())
+
+                if($(e.target).hasClass('activePort')){
+                    // click on the current active button
+                    // dont do anything
+                    return false; 
+                }else{
+                    // click to selected portfolio
+                    // loop to remove class of the previous active portfolio
+                    this.portBtn.each((i, elem) => $(elem).removeClass('activePort'))
+                    // add class to selected portfolio
+                    $(e.target).addClass('activePort')
+                    // reset values
+                    this.pageNum = 1
+                    this.currentIndex = 0
+                    // fetch all the data of the selected portfolio
+                    this.fetchData($(e.target).text())   
+                }
             })
         }
     }
 
+    const navigation = new Navigation
     const portfolio = new Portfolio
     const experience = new Experience
+
+    navigation.toggleMenu()
+    navigation.resizeEvent()
 
     portfolio.fetchData("Graphics Design");
     portfolio.resizeEvt();

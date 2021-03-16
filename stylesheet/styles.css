@@ -38,6 +38,7 @@ p {
 .headerWrap {
   background: #1D2748;
   position: relative;
+  z-index: 4;
 }
 
 .headerWrap .headerContainer {
@@ -51,6 +52,8 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  z-index: 4;
 }
 
 .headerWrap .headerContainer .navigationWrap {
@@ -75,6 +78,9 @@ p {
 
 .headerWrap .headerContainer .navigationWrap .menuBurger {
   cursor: pointer;
+  position: relative;
+  width: 35px;
+  height: 25px;
 }
 
 .headerWrap .headerContainer .navigationWrap .menuBurger span {
@@ -82,21 +88,44 @@ p {
   width: 35px;
   height: 5px;
   background: #E9F0F4;
-  margin-bottom: 5px;
   border-radius: 1px;
+  position: absolute;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
 }
 
-.headerWrap .headerContainer .navigationWrap .menuBurger span:last-child {
-  margin-bottom: 0px;
+.headerWrap .headerContainer .navigationWrap .menuBurger span:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.headerWrap .headerContainer .navigationWrap .menuBurger span:nth-child(2) {
+  top: 10px;
+  left: 0;
+}
+
+.headerWrap .headerContainer .navigationWrap .menuBurger span:nth-child(3) {
+  top: 20px;
+  left: 0;
 }
 
 .headerWrap .sideNavigationWrap {
+  min-height: calc(100vh - 71px);
   display: none;
   position: absolute;
-  top: 71px;
+  top: -999px;
   left: 0;
   width: 100%;
-  background: #1D2748;
+  background: rgba(29, 39, 72, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  z-index: 3;
 }
 
 .headerWrap .sideNavigationWrap .sideNavigationContainer {
@@ -212,7 +241,7 @@ p {
   max-width: 900px;
   height: 100%;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 40px 20px;
 }
 
 .aboutWrap .aboutContainer .characterWrap {
@@ -277,7 +306,7 @@ p {
 .portfolioWrap .portfolioContainer {
   max-width: 900px;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 40px 0;
 }
 
 .portfolioWrap .portfolioContainer h1 {
@@ -380,30 +409,6 @@ p {
   grid-row: 1 / 3;
 }
 
-.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:last-child {
-  background: #1D2748;
-}
-
-.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:last-child .showMore {
-  background: transparent;
-  vertical-align: middle;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:last-child .showMore i {
-  display: block;
-  color: #fff;
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap:last-child .showMore span {
-  font-size: 1rem;
-  color: #fff;
-}
-
 .portfolioWrap .portfolioContainer .portfolioImagesContainer .imageWrap img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -454,6 +459,44 @@ p {
   }
 }
 
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .showMoreWrap {
+  background: #1D2748;
+  height: 0;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .showMoreWrap:hover .showMore i {
+  opacity: .5;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .showMoreWrap:hover .showMore span {
+  opacity: .5;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .showMoreWrap .showMore {
+  background: transparent;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .showMoreWrap .showMore i {
+  display: block;
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  -webkit-transition: opacity 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
+}
+
+.portfolioWrap .portfolioContainer .portfolioImagesContainer .showMoreWrap .showMore span {
+  font-size: 1rem;
+  color: #fff;
+  -webkit-transition: opacity 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
+}
+
 .experienceWrap {
   min-height: 100vh;
 }
@@ -461,7 +504,7 @@ p {
 .experienceWrap .experienceContainer {
   max-width: 900px;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 40px 20px;
 }
 
 .experienceWrap .experienceContainer h1 {
@@ -512,6 +555,7 @@ p {
 
 .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap {
   margin-top: 20px;
+  overflow-x: hidden;
 }
 
 .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap h5, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap h5 {
@@ -531,6 +575,9 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  opacity: 0;
+  position: relative;
+  left: 100px;
 }
 
 .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li i, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li i {
@@ -555,7 +602,7 @@ p {
 .contactWrap .contactContainer {
   max-width: 900px;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 40px 20px;
 }
 
 .contactWrap .contactContainer h1 {
@@ -606,6 +653,20 @@ p {
   font-size: .85rem;
   color: #1F1F1F;
   font-weight: 700;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.contactWrap .contactContainer .additionalContactInfo p .contactHighlight:nth-child(1) {
+  color: #05cc46;
+}
+
+.contactWrap .contactContainer .additionalContactInfo p .contactHighlight:nth-child(2) {
+  color: #211f1f;
+}
+
+.contactWrap .contactContainer .additionalContactInfo p .contactHighlight:nth-child(3) {
+  color: #e62117;
 }
 
 .contactWrap .contactContainer .additionalContactInfo p .contactHighlight:hover {
