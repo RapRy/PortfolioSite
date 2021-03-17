@@ -118,8 +118,9 @@ p {
 .headerWrap .sideNavigationWrap {
   min-height: calc(100vh - 71px);
   display: none;
+  opacity: 0;
   position: absolute;
-  top: -999px;
+  top: 71px;
   left: 0;
   width: 100%;
   background: rgba(29, 39, 72, 0.1);
@@ -131,6 +132,11 @@ p {
 .headerWrap .sideNavigationWrap .sideNavigationContainer {
   text-align: center;
   padding: 20px;
+  position: absolute;
+  top: -999px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .headerWrap .sideNavigationWrap .sideNavigationContainer a {
@@ -224,13 +230,13 @@ p {
   color: #E9F0F4;
   text-align: center;
   display: inline-block;
-  background: transparent;
+  background: #1C77D1;
   -webkit-transition: background 500ms ease-in-out;
   transition: background 500ms ease-in-out;
 }
 
 .lpWrap .lpContainer .ctaBtnWrap a:hover {
-  background: #1C77D1;
+  background: rgba(28, 119, 209, 0.4);
 }
 
 .aboutWrap {
@@ -414,6 +420,7 @@ p {
      object-fit: cover;
   width: 100%;
   height: 0;
+  opacity: 0;
 }
 
 @media all and (min-width: 600px) {
@@ -495,6 +502,60 @@ p {
   color: #fff;
   -webkit-transition: opacity 500ms ease-in-out;
   transition: opacity 500ms ease-in-out;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer {
+  margin-top: 60px;
+  opacity: 0;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader {
+  background: #fff;
+  padding: 10px 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  grid-gap: 10px;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails {
+  -ms-grid-column-align: start;
+      justify-self: start;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails h4 {
+  font-size: .85rem;
+  color: #1F1F1F;
+  font-weight: 700;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails a {
+  color: #1D2748;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails a i {
+  color: #1F1F1F;
+  margin-right: 2px;
+  font-size: .75rem;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails p {
+  color: #7F828C;
+  font-size: .8rem;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioBtn {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioBtn i {
+  font-size: 1.8rem;
+  color: #1F1F1F;
+  cursor: pointer;
 }
 
 .experienceWrap {

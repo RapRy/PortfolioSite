@@ -1,4 +1,14 @@
 $(() => {
+    class Scrolling{
+        constructor(btn){
+            this.btn = btn
+        }
+
+        test(){
+            console.log(this.btn)
+        }
+    }
+
     class Navigation{
         constructor(){
             this.menuBurgerBtn = $('.menuBurger')
@@ -9,10 +19,15 @@ $(() => {
         }
 
         toggleMenu(){
+            this.test = this.menuBurgerBtn
             this.menuBurgerBtn.on('click', () => {
                 if(this.isShow === false){
                     // show sidenav
-                    this.sideNavigationWrap.css({"display":"block"}).animate({top:"71px"}, {duration:this.sideNavDuration, easing:"swing"})
+                    this.sideNavigationWrap.css({"display":"block"}).animate({opacity:1}, {duration:this.sideNavDuration, easing:"swing", complete:
+                        function(){
+                            $(this).children().animate({top:"71px"}, {duration:this.sideNavDuration, easing:"swing"})
+                        }
+                    })
                     // animate first span
                     this.menuBurgerBtn.children().eq(0).animate({top:"10px"}, {duration:this.spanDuration, easing:"swing"})
                     // animate third span
@@ -28,9 +43,13 @@ $(() => {
 
                 }else{
                     // hide sidenav
-                    this.sideNavigationWrap.animate({top:"-999px"}, {duration:this.sideNavDuration, easing:"swing", complete:
+                    this.sideNavigationWrap.children().animate({top:"-999px"}, {duration:this.sideNavDuration, easing:"swing", complete:
                         function(){
-                            $(this).css({"display":"none"})
+                            $(this).parent().animate({opacity:0}, {duration:this.sideNavDuration, easing:"swing", complete:
+                                function(){
+                                    $(this).css({"display":"none"})
+                                }
+                            })
                         }
                     })
                     // reset rotation of 1st and 3rd span
@@ -56,9 +75,13 @@ $(() => {
                 if($(e.target).outerWidth() >= 600){
                     if(this.isShow === true){
                         // hide sidenav
-                        this.sideNavigationWrap.animate({top:"-999px"}, {duration:this.sideNavDuration, easing:"swing", complete:
+                        this.sideNavigationWrap.children().animate({top:"-999px"}, {duration:this.sideNavDuration, easing:"swing", complete:
                             function(){
-                                $(this).css({"display":"none"})
+                                $(this).parent().animate({opacity:0}, {duration:this.sideNavDuration, easing:"swing", complete:
+                                    function(){
+                                        $(this).css({"display":"none"})
+                                    }
+                                })
                             }
                         })
                         // reset rotation of 1st and 3rd span
@@ -224,6 +247,7 @@ $(() => {
     class Portfolio{
         constructor(){
             this.portBtn = $('.portBtn')
+            this.portfolioImagesWrap = $('.portfolioImagesWrap') 
             this.portfolioImagesContainer = $('.portfolioImagesContainer')
             this.showMore = `
                 <div class="imageWrap showMoreWrap">
@@ -271,19 +295,70 @@ $(() => {
                 }
             }
 
-            $('.imageWrap img').animate({height:"100%"}, {duration: this.animDuration, easing: "swing"})
+            $('.imageWrap img').animate({height:"100%", opacity:1}, {duration: this.animDuration, easing: "swing"})
 
             $('.showMoreWrap').animate({height:"100%"}, {duration:this.animDuration, easing:"swing", complete:
                 function(){
-                  $(this).children().animate({opacity:1}, {duration:500, easing:"swing"}) 
+                  $(this).children().animate({opacity:1}, {duration:this.animDuration, easing:"swing"}) 
                 }
+            })
+
+            this.imageWrapClickEvt();
+        }
+
+        imageWrapClickEvt(){
+            $('.imageWrap').on('click', (e) => {
+                // get the details of the selected portfolio item
+                const selectedData = this.portData.filter((data) => data.name === $(e.currentTarget).attr("data-name"))
+                // destructure data
+                const { name, link, thumbnail, description } = selectedData[0]
+                // create new div and append details
+                this.portfolioImagesWrap.append(`
+                    <div class="selectedPortfolioContainer">
+                        <div class="selectedPortfolioHeader">
+                            <div class="selectedPortfolioDetails">
+                                <h4>${name}</h4>
+                                <a href="${link}"><i class="fas fa-link"></i> ${link}</a>
+                                <p>${description}</p>
+                            </div>
+                            <div class="selectedPortfolioBtn">
+                                <i class="fas fa-times selectedPortfolioCloseBtn"></i>
+                            </div>
+                        </div>
+                        <div class="selectedPortfolioBody">
+                            <img src="${thumbnail}" alt="${name}" />
+                        </div>
+                    </div>
+                `)
+                // hide portfolioImagesContainer
+                this.portfolioImagesContainer.animate({opacity:0, marginTop:"60px"}, {duration: this.animDuration, easing: "swing", complete:
+                    function(){
+                        // set display none of portfolioImagesContainer
+                        $(this).css({display:"none"})
+                        // show the selectedPortfolioContainer
+                        $(this).next().animate({opacity:1, marginTop:"20px"}, {duration: this.animDuration, easing: "swing"})
+                    }
+                })
+
+                // x button click event 
+                $('.selectedPortfolioCloseBtn').on('click', (e) => {
+                    // hide selectedPortfolioContainer
+                    $('.selectedPortfolioContainer').animate({opacity:0, marginTop:"60px"}, {duration: this.animDuration, easing: "swing", complete:
+                        () => {
+                            // then remove itself and details
+                            $('.selectedPortfolioContainer').remove();
+                            // show portfolioImagesContainer
+                            this.portfolioImagesContainer.css({display:"grid"}).animate({opacity:1, marginTop:"20px"}, {duration: this.animDuration, easing: "swing"})
+                        }
+                    })
+                })
             })
         }
 
         showMoreClickEvt(){
             $('.showMore').on('click', () => {
                 // animate img height : hide img
-                $('.imageWrap img').animate({height:"0"}, {duration: this.animDuration, easing: "swing"})
+                $('.imageWrap img').animate({height:"0", opacity:0}, {duration: this.animDuration, easing: "swing"})
                 // animate showmore btn opacity : hide showmore btn
                 $('.showMore').animate({opacity:0}, {duration:500, easing:"swing", complete:
                     function(){
@@ -320,14 +395,16 @@ $(() => {
                         }
                     }
                     // animate image height : show img
-                    $('.imageWrap img').animate({height:"100%"}, {duration: this.animDuration, easing: "swing"})
+                    $('.imageWrap img').animate({height:"100%", opacity:1}, {duration: this.animDuration, easing: "swing"})
                     // animate showmorewrap height : show showmorewrap
                     $('.showMoreWrap').animate({height:"100%"}, {duration:this.animDuration, easing:"swing", complete:
                         function(){
                             // animate showmore btn opacity after shomorewrap animate : show showmore btn
-                            $(this).children().animate({opacity:1}, {duration:500, easing:"swing"}) 
+                            $(this).children().animate({opacity:1}, {duration:this.animDuration, easing:"swing"}) 
                         }
                     })
+
+                    this.imageWrapClickEvt();
 
                 }, this.animDuration)
             })
@@ -401,6 +478,8 @@ $(() => {
     const portfolio = new Portfolio
     const experience = new Experience
 
+    const scrolling = new Scrolling(navigation.menuBurgerBtn)
+
     navigation.toggleMenu()
     navigation.resizeEvent()
 
@@ -410,4 +489,6 @@ $(() => {
 
     experience.fetchData($(experience.expBtn[0]).attr("data-exp"))
     experience.clickEvt()
+
+    scrolling.test()
 })
