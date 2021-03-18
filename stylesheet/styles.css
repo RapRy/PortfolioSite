@@ -65,11 +65,17 @@ p {
   display: none;
 }
 
+@media all and (min-width: 700px) {
+  .headerWrap .headerContainer .navigationWrap .desktopMenu {
+    display: block;
+  }
+}
+
 .headerWrap .headerContainer .navigationWrap .desktopMenu a {
   font-size: .85rem;
   color: #fff;
   font-weight: 700;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .headerWrap .headerContainer .navigationWrap .desktopMenu a:last-child {
@@ -81,6 +87,12 @@ p {
   position: relative;
   width: 35px;
   height: 25px;
+}
+
+@media all and (min-width: 700px) {
+  .headerWrap .headerContainer .navigationWrap .menuBurger {
+    display: none;
+  }
 }
 
 .headerWrap .headerContainer .navigationWrap .menuBurger span {
@@ -239,15 +251,22 @@ p {
   background: rgba(28, 119, 209, 0.4);
 }
 
-.aboutWrap {
-  min-height: 100vh;
-}
-
 .aboutWrap .aboutContainer {
   max-width: 900px;
   height: 100%;
   margin: 0 auto;
   padding: 40px 20px;
+}
+
+@media all and (min-width: 800px) {
+  .aboutWrap .aboutContainer {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto 1fr;
+        grid-template-columns: auto 1fr;
+    justify-items: start;
+    padding: 70px 20px;
+  }
 }
 
 .aboutWrap .aboutContainer .characterWrap {
@@ -277,6 +296,13 @@ p {
   text-align: center;
 }
 
+@media all and (min-width: 800px) {
+  .aboutWrap .aboutContainer .aboutInfoWrap h1 {
+    font-size: 1.8rem;
+    text-align: left;
+  }
+}
+
 .aboutWrap .aboutContainer .aboutInfoWrap .about {
   margin-bottom: 30px;
 }
@@ -286,8 +312,21 @@ p {
   margin-top: 10px;
 }
 
+@media all and (min-width: 800px) {
+  .aboutWrap .aboutContainer .aboutInfoWrap .about p {
+    font-size: .85rem;
+    text-align: left;
+  }
+}
+
 .aboutWrap .aboutContainer .aboutInfoWrap .techsIUse {
   text-align: center;
+}
+
+@media all and (min-width: 800px) {
+  .aboutWrap .aboutContainer .aboutInfoWrap .techsIUse {
+    text-align: left;
+  }
 }
 
 .aboutWrap .aboutContainer .aboutInfoWrap .techsIUse li {
@@ -306,13 +345,18 @@ p {
 
 .portfolioWrap {
   background: #E9F0F4;
-  min-height: 100vh;
 }
 
 .portfolioWrap .portfolioContainer {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 0;
+}
+
+@media all and (min-width: 800px) {
+  .portfolioWrap .portfolioContainer {
+    padding: 70px 0;
+  }
 }
 
 .portfolioWrap .portfolioContainer h1 {
@@ -322,9 +366,22 @@ p {
   margin-bottom: 20px;
 }
 
+@media all and (min-width: 800px) {
+  .portfolioWrap .portfolioContainer h1 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+}
+
 .portfolioWrap .portfolioContainer .portfolioBtnContainer {
   margin-bottom: 20px;
   text-align: center;
+}
+
+@media all and (min-width: 800px) {
+  .portfolioWrap .portfolioContainer .portfolioBtnContainer {
+    margin-bottom: 30px;
+  }
 }
 
 .portfolioWrap .portfolioContainer .portfolioBtnContainer button {
@@ -334,6 +391,12 @@ p {
   display: inline-block;
   background: none;
   cursor: pointer;
+}
+
+@media all and (min-width: 800px) {
+  .portfolioWrap .portfolioContainer .portfolioBtnContainer button {
+    font-size: 1rem;
+  }
 }
 
 .portfolioWrap .portfolioContainer .portfolioBtnContainer button.GDbtn {
@@ -558,14 +621,16 @@ p {
   cursor: pointer;
 }
 
-.experienceWrap {
-  min-height: 100vh;
-}
-
 .experienceWrap .experienceContainer {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
+}
+
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer {
+    padding: 70px 20px;
+  }
 }
 
 .experienceWrap .experienceContainer h1 {
@@ -575,8 +640,22 @@ p {
   margin-bottom: 20px;
 }
 
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer h1 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+}
+
 .experienceWrap .experienceContainer .experienceBtnContainer {
   margin-bottom: 30px;
+}
+
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceBtnContainer {
+    text-align: center;
+    margin-bottom: 50px;
+  }
 }
 
 .experienceWrap .experienceContainer .experienceBtnContainer .expBtn {
@@ -590,8 +669,23 @@ p {
   cursor: pointer;
 }
 
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceBtnContainer .expBtn {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 30px;
+    font-size: 1rem;
+  }
+}
+
 .experienceWrap .experienceContainer .experienceBtnContainer .expBtn:last-child {
   margin-bottom: 0;
+}
+
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceBtnContainer .expBtn:last-child {
+    margin-right: 0;
+  }
 }
 
 .experienceWrap .experienceContainer .experienceBtnContainer .expBtn.activeExp {
@@ -606,6 +700,13 @@ p {
   margin-bottom: 5px;
 }
 
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceDetailsContainer h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+}
+
 .experienceWrap .experienceContainer .experienceDetailsContainer span {
   font-size: 1rem;
   color: #1F1F1F;
@@ -614,9 +715,22 @@ p {
   display: block;
 }
 
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceDetailsContainer span {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+}
+
 .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap {
   margin-top: 20px;
   overflow-x: hidden;
+}
+
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap {
+    margin-top: 30px;
+  }
 }
 
 .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap h5, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap h5 {
@@ -625,6 +739,12 @@ p {
   font-size: .9rem;
   text-align: center;
   margin-bottom: 10px;
+}
+
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap h5, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap h5 {
+    margin-bottom: 20px;
+  }
 }
 
 .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li {
@@ -641,15 +761,33 @@ p {
   left: 100px;
 }
 
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li {
+    margin-bottom: 10px;
+  }
+}
+
 .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li i, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li i {
   margin: 7px 5px 0 0;
   font-size: .8rem;
   color: #1F1F1F;
 }
 
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li i, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li i {
+    font-size: .85rem;
+  }
+}
+
 .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li p, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li p {
   font-size: .85rem;
   color: #7F828C;
+}
+
+@media all and (min-width: 800px) {
+  .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li p, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li p {
+    font-size: .9rem;
+  }
 }
 
 .experienceWrap .experienceContainer .experienceDetailsContainer .dutiesWrap li:last-child, .experienceWrap .experienceContainer .experienceDetailsContainer .portfolioLinksWrap li:last-child {
@@ -666,11 +804,24 @@ p {
   padding: 40px 20px;
 }
 
+@media all and (min-width: 800px) {
+  .contactWrap .contactContainer {
+    padding: 70px 20px;
+  }
+}
+
 .contactWrap .contactContainer h1 {
   font-size: 1.6rem;
   color: #1F1F1F;
   text-align: center;
   margin-bottom: 20px;
+}
+
+@media all and (min-width: 800px) {
+  .contactWrap .contactContainer h1 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
 }
 
 .contactWrap .contactContainer .contactDetails {
@@ -679,9 +830,21 @@ p {
   margin: 0 auto 20px;
 }
 
+@media all and (min-width: 800px) {
+  .contactWrap .contactContainer .contactDetails {
+    margin: 0 auto 30px;
+  }
+}
+
 .contactWrap .contactContainer .contactDetails li {
   margin-bottom: 10px;
   display: inline-block;
+}
+
+@media all and (min-width: 800px) {
+  .contactWrap .contactContainer .contactDetails li {
+    margin-bottom: 20px;
+  }
 }
 
 .contactWrap .contactContainer .contactDetails li:last-child {

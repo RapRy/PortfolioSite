@@ -1,13 +1,4 @@
 $(() => {
-    class Scrolling{
-        constructor(btn){
-            this.btn = btn
-        }
-
-        test(){
-            console.log(this.btn)
-        }
-    }
 
     class Navigation{
         constructor(){
@@ -474,6 +465,20 @@ $(() => {
         }
     }
 
+    class Scrolling{
+        constructor(btn){
+            this.btn = btn
+        }
+
+        windowScrollEvnt(){
+            $(window).on('scroll', (e) => {
+                // console.log(e.currentTarget.pageYOffset)
+                const curScrollVal = e.currentTarget.pageYOffset
+
+            })
+        }
+    }
+
     const navigation = new Navigation
     const portfolio = new Portfolio
     const experience = new Experience
@@ -490,5 +495,5 @@ $(() => {
     experience.fetchData($(experience.expBtn[0]).attr("data-exp"))
     experience.clickEvt()
 
-    scrolling.test()
+    // scrolling.windowScrollEvnt()
 })
