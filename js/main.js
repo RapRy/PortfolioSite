@@ -7,6 +7,7 @@ $(() => {
             this.isShow = false
             this.spanDuration = 100
             this.sideNavDuration = 200
+            this.navLink = $('.navLink')
         }
 
         toggleMenu(){
@@ -64,6 +65,45 @@ $(() => {
         resizeEvent(){
             $(window).on('resize', (e) => {
                 if($(e.target).outerWidth() >= 600){
+                    if(this.isShow === true){
+                        // hide sidenav
+                        this.sideNavigationWrap.children().animate({top:"-999px"}, {duration:this.sideNavDuration, easing:"swing", complete:
+                            function(){
+                                $(this).parent().animate({opacity:0}, {duration:this.sideNavDuration, easing:"swing", complete:
+                                    function(){
+                                        $(this).css({"display":"none"})
+                                    }
+                                })
+                            }
+                        })
+                        // reset rotation of 1st and 3rd span
+                        this.menuBurgerBtn.children().eq(0).css({"transform":"rotate(0deg)"})
+                        this.menuBurgerBtn.children().eq(2).css({"transform":"rotate(0deg)"})
+
+                        setTimeout(() => {
+                            // show 2nd span
+                            this.menuBurgerBtn.children().eq(1).css({"opacity":1})
+                            // animate top 1st span
+                            this.menuBurgerBtn.children().eq(0).animate({top:"0px"}, {duration:this.spanDuration, easing:"swing"})
+                            // animate top 3rd span
+                            this.menuBurgerBtn.children().eq(2).animate({top:"20px"}, {duration:this.spanDuration, easing:"swing"})
+                        }, 200)
+
+                        // toggle isShow value
+                        this.isShow = !this.isShow
+                    }
+                }
+            })
+        }
+
+        clickEvt(){
+            this.navLink.on('click', (e) => {
+                // e.preventDefault()
+                let value = $(e.currentTarget).attr('href')
+                // $(window).scrollTop($(value).offset().top);
+                $(window).animate({scrollTop:$(value).offset().top}, 300)
+
+                if($(e.currentTarget).parent().hasClass('sideNavigationContainer')){
                     if(this.isShow === true){
                         // hide sidenav
                         this.sideNavigationWrap.children().animate({top:"-999px"}, {duration:this.sideNavDuration, easing:"swing", complete:
@@ -301,48 +341,51 @@ $(() => {
             $('.imageWrap').on('click', (e) => {
                 // get the details of the selected portfolio item
                 const selectedData = this.portData.filter((data) => data.name === $(e.currentTarget).attr("data-name"))
-                // destructure data
-                const { name, link, thumbnail, description } = selectedData[0]
-                // create new div and append details
-                this.portfolioImagesWrap.append(`
-                    <div class="selectedPortfolioContainer">
-                        <div class="selectedPortfolioHeader">
-                            <div class="selectedPortfolioDetails">
-                                <h4>${name}</h4>
-                                <a href="${link}"><i class="fas fa-link"></i> ${link}</a>
-                                <p>${description}</p>
+                
+                if(selectedData[0] != undefined){
+                    // destructure data
+                    const { name, link, thumbnail, description } = selectedData[0]
+                    // create new div and append details
+                    this.portfolioImagesWrap.append(`
+                        <div class="selectedPortfolioContainer">
+                            <div class="selectedPortfolioHeader">
+                                <div class="selectedPortfolioDetails">
+                                    <h4>${name}</h4>
+                                    <a href="${link}"><i class="fas fa-link"></i> ${link}</a>
+                                    <p>${description}</p>
+                                </div>
+                                <div class="selectedPortfolioBtn">
+                                    <i class="fas fa-times selectedPortfolioCloseBtn"></i>
+                                </div>
                             </div>
-                            <div class="selectedPortfolioBtn">
-                                <i class="fas fa-times selectedPortfolioCloseBtn"></i>
+                            <div class="selectedPortfolioBody">
+                                <img src="${thumbnail}" alt="${name}" />
                             </div>
                         </div>
-                        <div class="selectedPortfolioBody">
-                            <img src="${thumbnail}" alt="${name}" />
-                        </div>
-                    </div>
-                `)
-                // hide portfolioImagesContainer
-                this.portfolioImagesContainer.animate({opacity:0, marginTop:"60px"}, {duration: this.animDuration, easing: "swing", complete:
-                    function(){
-                        // set display none of portfolioImagesContainer
-                        $(this).css({display:"none"})
-                        // show the selectedPortfolioContainer
-                        $(this).next().animate({opacity:1, marginTop:"20px"}, {duration: this.animDuration, easing: "swing"})
-                    }
-                })
-
-                // x button click event 
-                $('.selectedPortfolioCloseBtn').on('click', (e) => {
-                    // hide selectedPortfolioContainer
-                    $('.selectedPortfolioContainer').animate({opacity:0, marginTop:"60px"}, {duration: this.animDuration, easing: "swing", complete:
-                        () => {
-                            // then remove itself and details
-                            $('.selectedPortfolioContainer').remove();
-                            // show portfolioImagesContainer
-                            this.portfolioImagesContainer.css({display:"grid"}).animate({opacity:1, marginTop:"20px"}, {duration: this.animDuration, easing: "swing"})
+                    `)
+                    // hide portfolioImagesContainer
+                    this.portfolioImagesContainer.animate({opacity:0, marginTop:"60px"}, {duration: this.animDuration, easing: "swing", complete:
+                        function(){
+                            // set display none of portfolioImagesContainer
+                            $(this).css({display:"none"})
+                            // show the selectedPortfolioContainer
+                            $(this).next().animate({opacity:1, marginTop:"20px"}, {duration: this.animDuration, easing: "swing"})
                         }
                     })
-                })
+
+                    // x button click event 
+                    $('.selectedPortfolioCloseBtn').on('click', (e) => {
+                        // hide selectedPortfolioContainer
+                        $('.selectedPortfolioContainer').animate({opacity:0, marginTop:"60px"}, {duration: this.animDuration, easing: "swing", complete:
+                            () => {
+                                // then remove itself and details
+                                $('.selectedPortfolioContainer').remove();
+                                // show portfolioImagesContainer
+                                this.portfolioImagesContainer.css({display:"grid"}).animate({opacity:1, marginTop:"20px"}, {duration: this.animDuration, easing: "swing"})
+                            }
+                        })
+                    })
+                }
             })
         }
 
@@ -468,13 +511,56 @@ $(() => {
     class Scrolling{
         constructor(btn){
             this.btn = btn
+            this.aboutCharImg = 0
+            this.aboutCharOpacity = 0
         }
 
         windowScrollEvnt(){
             $(window).on('scroll', (e) => {
-                // console.log(e.currentTarget.pageYOffset)
                 const curScrollVal = e.currentTarget.pageYOffset
 
+                // aboutWrap animation start
+                if(curScrollVal >= ($('#about').prev().height() / 2) && ($('#about').offset().top + ($('#about').height() / 2)) > curScrollVal){
+
+                    $('#about').find('.characterWrap img').css({left:"50%", opacity: 1})
+                    $('#about').find('.aboutInfoWrap').css({right:"0%", opacity: 1})
+                    setTimeout(() => {
+                        $('#about').find('.characterWrap svg').css({transform:"translateX(-50%) scale(1)", opacity:1})
+                    }, 200)
+                
+                }else if(curScrollVal >= $('#portfolio').offset().top || curScrollVal === 0){
+
+                    $('#about').find('.characterWrap img').css({left:"0%", opacity: 0})
+                    $('#about').find('.aboutInfoWrap').css({right:"-50%", opacity: 0})
+                    $('#about').find('.characterWrap svg').css({transform:"translateX(-50%) scale(0)", opacity:0})
+                    
+                }
+                // aboutWrap animation end
+
+                // portfolioWrap animation start
+                if(curScrollVal >= ($('#portfolio').offset().top - ($('#about').height() / 2)) && ($('#portfolio').offset().top + ($('#portfolio').height() / 2)) > curScrollVal){
+                    $('#portfolio').find('.portfolioContainer').css({left:"0%", opacity:1})
+
+                }else if(curScrollVal >= $('#experience').offset().top || curScrollVal <= $('#about').offset().top){
+                    $('#portfolio').find('.portfolioContainer').css({left:"-50%", opacity:0})
+                }
+                // portfolioWrap animation end
+
+                // experience animation start
+                if(curScrollVal >= $('#experience').offset().top - ($('#portfolio').height() / 2) && ($('#experience').offset().top + ($('#experience').height() / 2)) > curScrollVal){
+                    $('#experience').find('.experienceContainer').css({right:"0%", opacity:1})
+                }else if(curScrollVal >= $('#contact').offset().top || curScrollVal <= $('#portfolio').offset().top){
+                    $('#experience').find('.experienceContainer').css({right:"-50%", opacity:0})
+                }
+                // experience animation end
+
+                // contact animation start
+                if(curScrollVal >= $('#experience').offset().top){
+                    $('#contact').find('.contactContainer').css({top:"0px", opacity:1})
+                }else if(curScrollVal <= $('#experience').offset().top){
+                    $('#contact').find('.contactContainer').css({top:"200px", opacity:0})
+                }
+                // contact animation end
             })
         }
     }
@@ -487,6 +573,7 @@ $(() => {
 
     navigation.toggleMenu()
     navigation.resizeEvent()
+    navigation.clickEvt()
 
     portfolio.fetchData("Graphics Design");
     portfolio.resizeEvt();
@@ -495,5 +582,5 @@ $(() => {
     experience.fetchData($(experience.expBtn[0]).attr("data-exp"))
     experience.clickEvt()
 
-    // scrolling.windowScrollEvnt()
+    scrolling.windowScrollEvnt()
 })
