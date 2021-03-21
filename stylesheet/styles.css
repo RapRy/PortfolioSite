@@ -300,10 +300,10 @@ html {
   left: 50%;
   -webkit-transform: translateX(-50%) scale(0);
           transform: translateX(-50%) scale(0);
-  -webkit-transition: opacity 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
-  transition: opacity 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
-  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
-  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+  -webkit-transition: opacity 800ms ease-in-out, -webkit-transform 800ms ease-in-out;
+  transition: opacity 800ms ease-in-out, -webkit-transform 800ms ease-in-out;
+  transition: transform 800ms ease-in-out, opacity 800ms ease-in-out;
+  transition: transform 800ms ease-in-out, opacity 800ms ease-in-out, -webkit-transform 800ms ease-in-out;
 }
 
 .aboutWrap .aboutContainer .aboutInfoWrap {
