@@ -105,37 +105,116 @@
         }
 
     ],
-    "Web Design":
+    "Web Development":
     [
         {
-            "thumbnail": "thumbnail name",
-            "link": "link",
-            "name": "name",
-            "description": "description"
+            "thumbnail": "https://i.ibb.co/NYpYMPv/template12-home.png",
+            "link": "http://gametastic.quickcelltechnologies.com/",
+            "name": "GameTastic",
+            "description": ""
         },
         {
-            "thumbnail": "thumbnail name",
-            "link": "link",
-            "name": "name",
-            "description": "description"
+            "thumbnail": "https://i.ibb.co/jG2FJ0G/mobilevibes.jpg",
+            "link": "http://mobilevibes.quickcelltechnologies.com",
+            "name": "MobileVibes",
+            "description": ""
         },
         {
-            "thumbnail": "thumbnail name",
-            "link": "link",
-            "name": "name",
-            "description": "description"
+            "thumbnail": "https://i.ibb.co/VmKQgBg/funcity.jpg",
+            "link": "http://funcity.qnettech.net/",
+            "name": "FunCity",
+            "description": ""
         },
         {
-            "thumbnail": "thumbnail name",
-            "link": "link",
-            "name": "name",
-            "description": "description"
+            "thumbnail": "https://i.ibb.co/wdk3JyK/wof.jpg",
+            "link": "http://wof.quickcelltechnologies.com/",
+            "name": "WOF",
+            "description": ""
         },
         {
-            "thumbnail": "thumbnail name",
-            "link": "link",
-            "name": "name",
-            "description": "description"
+            "thumbnail": "https://i.ibb.co/5GqCwtf/aecadelegend.jpg",
+            "link": "http://arcadelegend.yunimazenterprise.com/",
+            "name": "Arcade Legend",
+            "description": ""
+        },
+        {
+            "thumbnail": "https://i.ibb.co/HGTq9rC/template9-home.png",
+            "link": "http://gameporium.mobitechsolutions.net/",
+            "name": "Gameporium",
+            "description": ""
+        },
+        {
+            "thumbnail": "https://i.ibb.co/HGTq9rC/template9-home.png",
+            "link": "http://gameporium.mobitechsolutions.net/",
+            "name": "Gameporium",
+            "description": ""
+        },
+        {
+            "thumbnail": "https://i.ibb.co/r4pCTKY/gamecloud.jpg",
+            "link": "http://gamecloud.mobitechsolutions.net/",
+            "name": "GameCloud",
+            "description": ""
+        }
+    ],
+    "Web Mockup": [
+
+    ],
+    "Front End Development": [
+        {
+            "thumbnail": "https://i.ibb.co/brn0pLY/idolEcom.png",
+            "link": "https://idolecom.netlify.app/",
+            "name": "idolEcom",
+            "githubLink": "https://github.com/RapRy/idolEcommerce",
+            "description": "This project is fully responsive and I also implemented routing. I used a rest api called Fake Store API for the products list, details and categories."
+        },
+        {
+            "thumbnail": "https://i.ibb.co/BNJRqcL/blogrlandingpage.jpg",
+            "link": "https://blogrlandingpage-frontendmentor.netlify.app/",
+            "name": "Blogr Landing Page",
+            "githubLink": "https://github.com/RapRy/blogrlandingpage-frontendmentor",
+            "description": "This a solution to one of the project from Frontend Mentor."
+        },
+        {
+            "thumbnail": "https://i.ibb.co/yBj6cCX/bookmarklandingpage.jpg",
+            "link": "https://bookmarkerlp-frontendmentor.netlify.app/",
+            "name": "Bookmark Landing Page",
+            "githubLink": "https://github.com/RapRy/bookmarklandingpage-frontendmentor",
+            "description": "This a solution to one of the project from Frontend Mentor."
+        },
+        {
+            "thumbnail": "https://i.ibb.co/qJWczmz/joblisting.jpg",
+            "link": "https://joblisting-frontendmentor.netlify.app/",
+            "name": "Job Listing with Filtering",
+            "githubLink": "https://github.com/RapRy/joblistingfrontendmentor",
+            "description": "This a solution to one of the project from Frontend Mentor."
+        },
+        {
+            "thumbnail": "https://i.ibb.co/Fw8Ckps/ipaddresstracker.jpg",
+            "link": "https://ipaddress-frontendmentor.netlify.app/",
+            "name": "IP Address Tracker",
+            "githubLink": "https://github.com/RapRy/ipaddresstracker-frontendmentor",
+            "description": "This a solution to one of the project from Frontend Mentor."
+        },
+        {
+            "thumbnail": "https://i.ibb.co/Bn4BJxX/template6.png",
+            "link": "https://content-portal-6.netlify.app/Apps/Dating",
+            "name": "Content Portal 6",
+            "githubLink": "https://github.com/RapRy/contentportal-template6-reactjs",
+            "description": ""
+        },
+        {
+            "thumbnail": "https://i.ibb.co/Y72B7dw/portal1.png",
+            "link": "https://portal-template-1.netlify.app/",
+            "name": "Content Portal 1",
+            "githubLink": "https://github.com/RapRy/contentportal-template1",
+            "description": ""
+        },
+        {
+            "thumbnail": "https://i.ibb.co/HGTq9rC/template9-home.png",
+            "link": "https://portal-template-9.netlify.app/Category/Apps/Dating",
+            "name": "Content Portal 9",
+            "githubLink": "https://github.com/RapRy/contentportal-template9",
+            "description": ""
         }
     ]
 }

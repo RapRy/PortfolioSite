@@ -344,7 +344,7 @@ $(() => {
                 
                 if(selectedData[0] != undefined){
                     // destructure data
-                    const { name, link, thumbnail, description } = selectedData[0]
+                    const { name, link, thumbnail, description, githubLink } = selectedData[0]
                     // create new div and append details
                     this.portfolioImagesWrap.append(`
                         <div class="selectedPortfolioContainer">
@@ -352,7 +352,8 @@ $(() => {
                                 <div class="selectedPortfolioDetails">
                                     <h4>${name}</h4>
                                     <a href="${link}"><i class="fas fa-link"></i> ${link}</a>
-                                    <p>${description}</p>
+                                    ${ githubLink !== undefined ? `<a href="${githubLink}" class="githubLink"><i class="fab fa-github"></i> ${githubLink}</a>` : "" }
+                                    ${ description !== "" ? `<p>${description}</p>` : "" }
                                 </div>
                                 <div class="selectedPortfolioBtn">
                                     <i class="fas fa-times selectedPortfolioCloseBtn"></i>

@@ -420,19 +420,25 @@ html {
   font-size: .9rem;
   font-weight: 700;
   color: #7F828C;
-  display: inline-block;
+  display: block;
   background: none;
   cursor: pointer;
+  margin: 0 auto 20px;
 }
 
 @media all and (min-width: 800px) {
   .portfolioWrap .portfolioContainer .portfolioBtnContainer button {
     font-size: 1rem;
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .portfolioWrap .portfolioContainer .portfolioBtnContainer button:last-child {
+    margin-right: 0px;
   }
 }
 
-.portfolioWrap .portfolioContainer .portfolioBtnContainer button.GDbtn {
-  margin-right: 20px;
+.portfolioWrap .portfolioContainer .portfolioBtnContainer button:last-child {
+  margin-bottom: 40px;
 }
 
 .portfolioWrap .portfolioContainer .portfolioBtnContainer button.activePort {
@@ -620,15 +626,19 @@ html {
 }
 
 .portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails h4 {
-  font-size: .85rem;
+  font-size: .9rem;
   color: #1F1F1F;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails a {
   color: #1D2748;
   font-size: .8rem;
-  font-weight: 700;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails a:last-of-type {
+  display: inline-block;
 }
 
 .portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails a i {
@@ -640,6 +650,7 @@ html {
 .portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioDetails p {
   color: #7F828C;
   font-size: .8rem;
+  margin-top: 20px;
 }
 
 .portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioHeader .selectedPortfolioBtn {
@@ -651,6 +662,10 @@ html {
   font-size: 1.8rem;
   color: #1F1F1F;
   cursor: pointer;
+}
+
+.portfolioWrap .portfolioContainer .selectedPortfolioContainer .selectedPortfolioBody img {
+  margin: 0 auto;
 }
 
 .experienceWrap {
