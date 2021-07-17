@@ -525,9 +525,7 @@ $(() => {
 
                     $('#about').find('.characterWrap img').css({left:"50%", opacity: 1})
                     $('#about').find('.aboutInfoWrap').css({right:"0%", opacity: 1})
-                    setTimeout(() => {
-                        $('#about').find('.characterWrap svg').css({transform:"translateX(-50%) scale(1)", opacity:1})
-                    }, 200)
+                    $('#about').find('.characterWrap svg').css({transform:"translateX(-50%) scale(1)", opacity:1})
                 
                 }else if(curScrollVal >= $('#portfolio').offset().top || curScrollVal === 0){
 
