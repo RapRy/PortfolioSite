@@ -313,11 +313,14 @@ $(() => {
                             <img src="${data[i].thumbnail}" alt="${data[i].name}">
                         </div>
                     `)
-
+                    
                     if(i === (data.length - 1)){
                         // if last iteration index is equal to the array length 
                         // set currentIndex to the value of the last iteration
                         this.currentIndex = i
+                        // if data is lesser than the number that are to be displayed break out of loop
+                        // don't append show more btn
+                        if(data.length < this.contentNum) break
                         // append showmore button
                         this.portfolioImagesContainer.append(this.showMore)
                         // add event listener to the showmore btn
